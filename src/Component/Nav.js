@@ -14,7 +14,7 @@ const Nav = ({username}) => {
     return (
         <div>
                 <div className="alert alert-success" role="alert">
-                    hey {username} you just called the Nab component ta-daaaaaaaa !
+                    hey {username} you just called the Nav component ta-daaaaaaaa !
                 </div>
 
         </div>
