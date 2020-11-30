@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-import Nav from "./Component/Nav";
-import ComponentTwo from "./Component/ComponentTwo";
 
 function App() {
   const data = ["media1.png", "media2.png", "media3.png"];
