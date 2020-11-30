@@ -37,7 +37,12 @@ function App() {
         <div className="row">
           {data.map(function (item, i) {
             return (
-              <img src={item} key={i} onClick={() => setCompteur(i)}></img>
+              <img
+                src={item}
+                key={i}
+                alt="img"
+                onClick={() => setCompteur(i)}
+              ></img>
             );
           })}
         </div>
