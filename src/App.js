@@ -1,39 +1,49 @@
-import React,{useState} from 'react';
-import './App.css';
-import Nav from './Component/Nav'
+import React, { useState } from "react";
+import "./App.css";
+import Nav from "./Component/Nav";
+import ComponentTwo from "./Component/ComponentTwo";
+
 function App() {
-  const [name,setName] = useState('');
-
-  const [compteur,setCompteur] = useState(0);
-  const [show,setshow] = useState(false);
-
-  const incrementCompteur = () => {
-    setCompteur(compteur + 1);
-  }
-  const handleshow = () => {
-    setshow(!show);
-    setName(name);
-  }
-  const handleInput = (e) => {
-    setName(e.target.value)
-  }
-   
+  const data = ["media1.png", "media2.png", "media3.png"];
+  const [compteur, setCompteur] = useState(0);
+  const handlePrevious = () => {
+    if (compteur === 0) {
+      setCompteur(2);
+      console.log(compteur);
+    } else setCompteur(compteur - 1);
+  };
+  const handleNext = () => {
+    if (compteur === 2) {
+      setCompteur(0);
+      console.log(compteur);
+    } else setCompteur(compteur + 1);
+  };
   return (
-    <div className="App content ">
-        <div className="d-flex flex-row">
-        <button type = "button" className="btn btn-outline-success p-2" 
-        onClick ={() => {setCompteur(compteur-1)}}>
-          Décréménter</button> 
-
-        <label className="p-2">Mon compteur : {compteur} </label>
-        <button type = "button" className="btn btn-outline-success p-2" onClick ={incrementCompteur}>Incréménter</button> 
-        <button type = "button" className="btn btn-danger p-2" onClick ={() => setCompteur(0)}>Reset Compteur</button> 
-        <input type="text" onChange={handleInput}></input> 
-        <button type = "button" className="btn btn-success p-2" onClick ={handleshow}>Show/hide</button> 
-          
-
+    <div>
+      <div className="container">
+        <div className="row align-items-center">
+          <div className="col-2">
+            <button className="btn btn-danger" onClick={handlePrevious}>
+              Previous
+            </button>
+          </div>
+          <div className="col-8">
+            <img class="image-fluid" src={data[compteur]} alt="img"></img>
+          </div>
+          <div className="col-2">
+            <button className="btn btn-danger" onClick={handleNext}>
+              Next
+            </button>
+          </div>
         </div>
-        {show && <Nav username={name} />}
+        <div className="row">
+          {data.map(function (item, i) {
+            return (
+              <img src={item} key={i} onClick={() => setCompteur(i)}></img>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

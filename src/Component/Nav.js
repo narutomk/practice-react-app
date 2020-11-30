@@ -1,24 +1,21 @@
-import React,{useEffect} from 'react';
+import React, { useEffect } from "react";
 
-const Nav = ({username}) => {
+const Nav = ({ username }) => {
+  useEffect(() => {
+    console.log("component did mount !");
 
-    useEffect(() => {
-        console.log('component did mount !');
+    return () => {
+      console.log("component will unmount !");
+    };
+  }, []);
 
-        return() => 
-        {
-        console.log('component will unmount !');
-        };
-    },[]);
- 
-    return (
-        <div>
-                <div className="alert alert-success" role="alert">
-                    hey {username} you just called the Nav component ta-daaaaaaaa !
-                </div>
+  return (
+    <div>
+      <div className="alert alert-success" role="alert">
+        hey {username} you just called the Nav component ta-daaaaaaaa !
+      </div>
+    </div>
+  );
+};
 
-        </div>
-    )
-}
-
-export default Nav
+export default Nav;
